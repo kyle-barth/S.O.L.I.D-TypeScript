@@ -1,7 +1,3 @@
-# Good Example
+# Single Responsibility
 
-The User Class passes the Single Responsibly Priciple as it's responsibilities only include:
-
-1. User Management.
-
-The Handling Emails would now be done by the EmailService we inject in the class.
+"Every module, class, or function should have responsibility over a single part of the functionality provided by the software"

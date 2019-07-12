@@ -32,16 +32,12 @@ class Square {
 }
 
 // ... later on in the code
-function calculateAreas(squares: Square[], rectangles: Rectangle[]) {
-    const squareAreas: Array<Number> = squares.forEach((square: Square) => {
-        return squares.getArea();
-    });
+function calculateAreas(squares: Square[], rectangles: Rectangle[]): number[] {
+    const squareAreas: number[] = squares.map((square: Square) => square.getArea());
+    const rectangleAreas: number[] = rectangles.map((rectangle: Rectangle) => rectangle.getArea());
 
-    const rectangleAreas: Array<Number> = rectangles.forEach((rectangle: Rectangle) => {
-        return rectangles.getArea();
-    });
+    return [ ...squareAreas, ...rectangleAreas];
 }
-
 ```
 
 The calculateAreas function fails the Open / Closed Priciple as each time we add a new shape class - we need to modify the calculateAreas function.
@@ -80,9 +76,9 @@ class Square implements Shape {
 }
 
 // ... later on in the code
-function calculateAreas(shapes: Shape[]) {
+function calculateAreas(shapes: Shape[]): number[] {
     return shapes.map((shape: Shape) => shape.getArea());
 }
 ```
 
-The calculateAreas function passes the Open / Closed Priciple as each time we add a new shape class that implements our shape interface - we don't to modify the calculateAreas function. Closed for modification, Open for extension.
+The calculateAreas function passes the Open / Closed Priciple as each time we add a new shape class that implements our shape interface - we don't to modify the calculateAreas function. So we can extend the functionality without modifying the code - Open for extension, Closed for modification.

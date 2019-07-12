@@ -25,12 +25,9 @@ class Square {
 }
 
 // ... later on in the code
-function calculateAreas(squares: Square[], rectangles: Rectangle[]) {
-    const squareAreas: Array<Number> = squares.forEach((square: Square) => {
-        return squares.getArea();
-    });
+function calculateAreas(squares: Square[], rectangles: Rectangle[]): number[] {
+    const squareAreas: number[] = squares.map((square: Square) => square.getArea());
+    const rectangleAreas: number[] = rectangles.map((rectangle: Rectangle) => rectangle.getArea());
 
-    const rectangleAreas: Array<Number> = rectangles.forEach((rectangle: Rectangle) => {
-        return rectangles.getArea();
-    });
+    return [ ...squareAreas, ...rectangleAreas];
 }

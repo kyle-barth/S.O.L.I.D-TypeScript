@@ -1,6 +1,6 @@
 # SOLID-TypeScript
 
-Experimentation with the solid principles to become a better programmer.
+Examples of the solid principles using TypeScript to become a better programmer.
 
 ___
 ## 1. Single Responsibility
